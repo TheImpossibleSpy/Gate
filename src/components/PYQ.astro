@@ -1,0 +1,13 @@
+---
+const { year, marks } = Astro.props;
+---
+
+<div class="my-6 p-4 border-l-4 border-blue-600 bg-blue-50 dark:bg-blue-900/20 rounded-r-md">
+  <div class="flex items-center gap-2 mb-2 text-sm font-bold text-blue-700 dark:text-blue-300 uppercase tracking-wider">
+    <span class="bg-blue-200 dark:bg-blue-800 px-2 py-0.5 rounded">PYQ {year}</span>
+    {marks && <span class="bg-blue-200 dark:bg-blue-800 px-2 py-0.5 rounded">{marks} Marks</span>}
+  </div>
+  <div class="prose dark:prose-invert max-w-none">
+    <slot />
+  </div>
+</div>
