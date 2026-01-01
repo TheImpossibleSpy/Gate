@@ -1,37 +1,54 @@
 ---
 import { getCollection } from 'astro:content';
 
-const allContent = await getCollection('gate');
+const allContent = await getCollection('mechanical');
 
-// Helper to structure content into Subjects -> Topics -> Pages
-// Folder structure: src/content/gate/subject/topic.md or subject/topic/page.md
-// Assuming: src/content/gate/[subject]/[topic].md
-
-// Group by subject (first folder name)
+// Group by subject (from frontmatter.subject)
 const grouped = {};
 
 allContent.forEach((entry) => {
-  const parts = entry.slug.split('/');
-  if (parts.length >= 1) {
-    const subject = parts[0];
-    if (!grouped[subject]) {
-      grouped[subject] = [];
-    }
-    grouped[subject].push(entry);
+  const subject = entry.data.subject;
+  if (!grouped[subject]) {
+    grouped[subject] = [];
   }
+  grouped[subject].push(entry);
 });
 
-const subjects = Object.keys(grouped).sort();
+// Sort subjects manually or alphabetically?
+// The syllabus order in the script was logical.
+// I'll define a subject order map to keep the syllabus flow correct.
+const subjectOrder = [
+  'Engineering Mathematics',
+  'Engineering Mechanics',
+  'Mechanics of Materials',
+  'Theory of Machines',
+  'Vibrations',
+  'Machine Design',
+  'Fluid Mechanics',
+  'Heat Transfer',
+  'Thermodynamics',
+  'Applied Thermodynamics',
+  'Engineering Materials',
+  'Manufacturing Engineering',
+  'Industrial Engineering'
+];
 
-// Capitalize helper
-const capitalize = (s) => s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+const subjects = Object.keys(grouped).sort((a, b) => {
+  const indexA = subjectOrder.indexOf(a);
+  const indexB = subjectOrder.indexOf(b);
+  if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+  if (indexA === -1) return 1;
+  if (indexB === -1) return -1;
+  return indexA - indexB;
+});
+
 ---
 
 <nav class="space-y-6">
   {subjects.map(subject => (
     <div>
       <h3 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-sm mb-2 px-2">
-        {capitalize(subject)}
+        {subject}
       </h3>
       <ul class="space-y-1">
         {grouped[subject]
@@ -39,7 +56,7 @@ const capitalize = (s) => s.split('-').map(w => w.charAt(0).toUpperCase() + w.sl
           .map(entry => (
           <li>
             <a
-              href={`/gate/${entry.slug}`}
+              href={`/mechanical/${entry.slug}`}
               class="block px-2 py-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded transition-colors"
             >
               {entry.data.title}

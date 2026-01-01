@@ -10,6 +10,18 @@ const gateCollection = defineCollection({
   }),
 });
 
+const mechanicalCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    subject: z.string(),
+    order: z.number().default(0),
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   'gate': gateCollection,
+  'mechanical': mechanicalCollection,
 };
