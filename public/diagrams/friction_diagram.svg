@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <!-- Ground -->
+  <line x1="50" y1="150" x2="350" y2="150" stroke="black" stroke-width="2"/>
+  <path d="M50,150 L350,150 L340,160 L60,160 Z" fill="#eee"/>
+
+  <!-- Block -->
+  <rect x="150" y="100" width="100" height="50" fill="#a0c4ff" stroke="black" stroke-width="2"/>
+  <text x="200" y="130" text-anchor="middle" font-family="sans-serif" font-size="14">Mass m</text>
+
+  <!-- Forces -->
+  <!-- Weight -->
+  <line x1="200" y1="125" x2="200" y2="180" stroke="red" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="210" y="175" fill="red" font-family="sans-serif">mg</text>
+
+  <!-- Normal -->
+  <line x1="200" y1="150" x2="200" y2="90" stroke="blue" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="210" y="85" fill="blue" font-family="sans-serif">N</text>
+
+  <!-- Applied Force -->
+  <line x1="250" y1="125" x2="320" y2="125" stroke="green" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="115" fill="green" font-family="sans-serif">P</text>
+
+  <!-- Friction -->
+  <line x1="150" y1="150" x2="100" y2="150" stroke="orange" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="110" y="140" fill="orange" font-family="sans-serif">f</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="context-stroke" />
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,103 @@
+---
+title: Friction
+description: Understanding Dry Friction, Laws of Friction, and Applications in Engineering Mechanics
+order: 1
+tags: ["mechanics", "friction", "statics"]
+---
+import PYQ from '../../../components/PYQ.astro';
+import Formula from '../../../components/Formula.astro';
+
+## Introduction to Friction
+
+Friction is the resistive force that opposes the relative motion or tendency of such motion of two surfaces in contact. It is not a fundamental force but arises from electromagnetic forces between atoms and molecules.
+
+### Types of Friction
+
+1.  **Dry Friction (Coulomb Friction):** Occurs between non-lubricated surfaces.
+2.  **Fluid Friction:** Occurs between layers of fluids moving at different velocities.
+3.  **Internal Friction:** Occurs within solid materials during deformation.
+
+In GATE Engineering Mechanics, we primarily focus on **Dry Friction**.
+
+## Laws of Dry Friction (Coulomb's Laws)
+
+The laws of dry friction are empirical in nature:
+
+1.  The frictional force always acts in a direction opposite to that of the motion (or impending motion).
+2.  The magnitude of the maximum static frictional force, $f_s$, is proportional to the normal reaction force, $N$.
+3.  The magnitude of the kinetic frictional force, $f_k$, is proportional to the normal reaction force, $N$.
+4.  The frictional force is independent of the apparent area of contact.
+5.  The coefficient of kinetic friction ($\mu_k$) is usually less than the coefficient of static friction ($\mu_s$).
+
+<Formula title="Friction Formulas">
+
+$$ f_s \le \mu_s N $$
+$$ f_{s,max} = \mu_s N $$
+$$ f_k = \mu_k N $$
+
+</Formula>
+
+Where:
+*   $f_s$ = Static frictional force
+*   $\mu_s$ = Coefficient of static friction
+*   $f_k$ = Kinetic frictional force
+*   $\mu_k$ = Coefficient of kinetic friction
+*   $N$ = Normal reaction force
+
+## Free Body Diagram with Friction
+
+Below is a diagram showing the forces acting on a block on a horizontal surface being pulled by a force $P$.
+
+![Friction FBD](/diagrams/friction_diagram.svg)
+
+## Angle of Friction ($\phi$)
+
+The angle of friction is the angle which the resultant of the limiting friction ($f_{s,max}$) and normal reaction ($N$) makes with the normal reaction.
+
+$$ \tan \phi_s = \frac{f_{s,max}}{N} = \frac{\mu_s N}{N} = \mu_s $$
+
+<Formula>
+
+$$ \phi_s = \tan^{-1}(\mu_s) $$
+
+</Formula>
+
+## Angle of Repose ($\theta$)
+
+The angle of repose is the maximum angle of an inclined plane at which a block placed on it remains in equilibrium solely under the action of gravity and friction.
+
+It can be shown that the angle of repose is equal to the angle of static friction.
+
+$$ \theta = \phi_s $$
+
+## Previous Year Questions (PYQ)
+
+<PYQ year="2018" marks="2">
+
+A block of mass 10 kg rests on a rough horizontal surface. The coefficient of static friction between the block and the surface is 0.4. A horizontal force P is applied to the block. If $g = 9.81 m/s^2$, the maximum value of P for which the block remains at rest is:
+
+**(A) 9.81 N**
+**(B) 19.62 N**
+**(C) 39.24 N**
+**(D) 98.1 N**
+
+**Solution:**
+The maximum static friction force is $f_{s,max} = \mu_s N$.
+Vertical equilibrium: $N = mg = 10 \times 9.81 = 98.1 \, \text{N}$.
+$f_{s,max} = 0.4 \times 98.1 = 39.24 \, \text{N}$.
+For the block to remain at rest, $P \le f_{s,max}$.
+Max $P = 39.24 \, \text{N}$.
+
+**Answer: (C)**
+</PYQ>
+
+<PYQ year="2015" marks="1">
+The coefficient of friction between two surfaces is the ratio of:
+
+(A) Limiting friction to Normal reaction
+(B) Limiting friction to Weight of body
+(C) Normal reaction to Limiting friction
+(D) Weight of body to Limiting friction
+
+**Answer: (A)**
+</PYQ>

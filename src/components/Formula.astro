@@ -1,0 +1,10 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="my-6 p-4 border border-amber-300 bg-amber-50 dark:bg-amber-900/10 rounded-md shadow-sm">
+  {title && <div class="text-sm font-bold text-amber-800 dark:text-amber-200 uppercase tracking-wide mb-2">{title}</div>}
+  <div class="font-serif text-lg text-center py-2 overflow-x-auto">
+    <slot />
+  </div>
+</div>
